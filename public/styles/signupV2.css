@@ -1,0 +1,146 @@
+.contentSignup form {
+    position: absolute;
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* background: white; */
+}
+
+.contentSignup form .signUpBox {
+    width: 60%;
+    min-height: 500px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 3px solid black;
+    flex-direction: row;
+}
+
+.contentSignup form .signUpBox .column1 {
+    width: 45%;
+    height: 100%;
+    background: white;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contentSignup form .signUpBox .column1 .signUpInput {
+    border-radius: 10px;
+    width: 90%;
+    height: 50px;
+    outline: none;
+    border: 2px solid black;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-weight: 400;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.contentSignup form .signUpBox .column1 select {
+    appearance: none;
+}
+
+.contentSignup form .signUpBox .column1 .roles {
+    height: 40px;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    /* border: 1px solid black; */
+}
+
+.contentSignup form .signUpBox .column1 .signUpInput:focus {
+    border: 2px solid #023e8a;
+}
+
+.contentSignup form .signUpBox .column1 .btn {
+    border-radius: 10px;
+    width: 80%;
+    height: 50px;
+    outline: none;
+    border: 2px solid black;
+    font-weight: 600;
+    font-size: 15px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #023e8a;
+    color: white;
+}
+
+.contentSignup form .signUpBox .column1 .btn:hover {
+    background: #00b4d8;
+}
+
+.contentSignup form .signUpBox .column2 {
+    width: 45%;
+    height: 100%;
+    background: white;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contentSignup form .signUpBox .column2 .signUpInput {
+    border-radius: 10px;
+    width: 90%;
+    height: 50px;
+    outline: none;
+    border: 2px solid black;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-weight: 400;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.contentSignup form .signUpBox .column2 select {
+    appearance: none;
+}
+
+.contentSignup form .signUpBox .column2 .roles {
+    height: 40px;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    /* border: 1px solid black; */
+}
+
+.contentSignup form .signUpBox .column2 .signUpInput:focus {
+    border: 2px solid #023e8a;
+}
+
+.contentSignup form .signUpBox .column2 .btn {
+    border-radius: 10px;
+    width: 80%;
+    height: 50px;
+    outline: none;
+    border: 2px solid black;
+    font-weight: 600;
+    font-size: 15px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #023e8a;
+    color: white;
+}
+
+.contentSignup form .signUpBox .column2 .btn:hover {
+    background: #00b4d8;
+}

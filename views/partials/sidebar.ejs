@@ -1,0 +1,95 @@
+<div class="sidebar">
+    <div class="weather">
+        <p><%= (locals.dateObj.dayOfWeek) %>, <%= (locals.dateObj.day) %> de <%= (locals.dateObj.month) %></p>
+        <p><%= (locals.userObj.city) %>, <%= (locals.weatherObj.description) %></p>
+        <div class="tempSection">
+            <img src=<%= (locals.weatherObj.iconUrl) %> alt="">
+            <p><%= (locals.weatherObj.temperature) %> °C</p>
+        </div>
+    </div>
+    <hr>
+    <div class="rides">
+        <% if(!(locals.userObj.isLoged)) { %>
+            <a class="login" href="/login"></a>
+            <% } else { %>
+
+                <% if((locals.userObj.role) === 'M') { %>
+                    <% if(!(locals.userObj.rides)) { %>
+                        <a class="getTravelsDrivers" href="/ridesReg"></a>
+                    <% } else { %>
+                        <div class="ridesList">
+                            <a href="" class="eachPerson driver" onclick="return false;">Motorista - <%= (locals.userObj.todayRideObj.riderName) %></a>
+                            <% if((locals.userObj.todayRidePassengers)) { %>
+                                <% for(let i = 0; i < locals.userObj.todayRidePassengers.length; i++) { %>
+                                    <a href="" class="eachPerson" onclick="return false;">Passageiro - <%= (locals.userObj.todayRidePassengers[i].eachPassengerName) %></a>
+                                <% } %>
+                            <% } %> 
+                        </div>
+                    <% } %> 
+                <% } else if((locals.userObj.role) === 'P') { %>
+                    <% if(!(locals.userObj.rides)) { %>
+                        <a class="getTravelsPassengers" href="/rides"></a>
+                    <% } else { %>
+                        <div class="ridesList">
+                            <a href="" class="eachPerson driver" onclick="return false;">Motorista - <%= (locals.userObj.todayRideObj.riderName) %></a>
+                            <a href="" class="eachPerson" onclick="return false;">Passageiro - <%= (locals.userObj.name) %></a>
+                            <% if((locals.userObj.todayRidePassengers)) { %>
+                                <% for(let i = 0; i < locals.userObj.todayRidePassengers.length; i++) { %>
+                                    <a href="" class="eachPerson" onclick="return false;">Passageiro - <%= (locals.userObj.todayRidePassengers[i].eachPassengerName) %></a>
+                                <% } %>
+                            <% } %> 
+                        </div>
+                    <% } %>
+                <% } %>
+
+            <% } %>
+    </div>
+    <hr>
+    <div class="classes">
+        <% if(!(locals.userObj.isLoged)) { %>
+            <a class="login" href="/login"></a>
+        <% } else { %>
+            
+            <% if(!(locals.userObj.classes)) { %>
+                <a class="getClasses" href="/classesReg"></a>
+            <% } else { %>
+                <% if(!(locals.userObj.hasClassToday)) { %>
+                    <a class="showClasses" href="/classesReg"></a>
+                <% } else { %>
+                    
+                    <div class="classesList">
+
+                        <div class="eachClass">
+                            <a href="" onclick="return false;">
+                                <p><%= (userObj.todayClassObj.class1 === '') ? (userObj.todayClassObj.freeClassMessage) : (userObj.todayClassObj.class1) %></p>
+                                <p><%= (userObj.todayClassObj.period === 'M') ? "07:30" : "19:00" %></p>
+                                
+                            </a>
+                        </div>
+                        <div class="eachClass" onclick="return false;">
+                            <a href="">
+                                <p><%= (userObj.todayClassObj.class2 === '') ? (userObj.todayClassObj.freeClassMessage) : (userObj.todayClassObj.class2) %></p>
+                                <p><%= (userObj.todayClassObj.period === 'M') ? "08:20" : "19:50" %></p>
+                            </a>
+                        </div>
+                        <div class="eachClass" onclick="return false;">
+                            <a href="">
+                                <p><%= (userObj.todayClassObj.class3 === '') ? (userObj.todayClassObj.freeClassMessage) : (userObj.todayClassObj.class3) %></p>
+                                <p><%= (userObj.todayClassObj.period === 'M') ? "09:30" : "21:00" %></p> 
+                            </a>
+                        </div>
+                        <div class="eachClass" onclick="return false;">
+                            <a href="">
+                                <p><%= (userObj.todayClassObj.class4 === '') ? (userObj.todayClassObj.freeClassMessage) : (userObj.todayClassObj.class4) %></p>
+                                <p><%= (userObj.todayClassObj.period === 'M') ? "10:20" : "21:50" %></p>
+                            </a>
+                        </div>
+
+                    </div>
+
+                <% } %>  
+            <% } %> 
+
+        <% } %>
+    </div>
+</div>

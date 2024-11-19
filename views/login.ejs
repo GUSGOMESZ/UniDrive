@@ -1,0 +1,22 @@
+<%- include("partials/header.ejs") %>
+
+<%- include("partials/navbar.ejs", { login: locals.userObj.isLoged, name: locals.userObj.name, ra: locals.userObj.ra }) %>
+
+<div class="contentLogin">
+    <form action="/" method="POST">
+        <div class="loginBox">
+            <input name="ra" class="loginInput" type="text" placeholder="Insira seu RA" required autofocus>
+            <input name="password" class="loginInput" type="password" placeholder="Insira sua senha" required>
+            <p>Não possui cadastro ? <a href="/signup">Cadastre-se</a></p>
+
+            <% if(locals.validation) { %>
+                <% if(locals.validation === 1)  { %>
+                    <p class="errorMessage">RA não encontrado</p>
+                <% } else if(locals.validation === 2) { %>
+                    <p class="errorMessage">Senha Incorreta</p>
+                <% } %>
+            <% } %>
+            <button class="btn" type="submit"><p>Entrar</p></button>
+        </div>
+    </form>
+</div>

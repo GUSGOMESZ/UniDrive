@@ -1,0 +1,35 @@
+<%- include("partials/header.ejs") %>
+
+<%- include("partials/navbar.ejs", { login: locals.userObj.isLoged, name: locals.userObj.name, ra: locals.userObj.ra }) %>
+
+<div class="home-content">
+    <%- include("partials/sidebar.ejs", { userObj: locals.userObj, dateObj: dateObj, weatherObj: weatherObj }) %>
+    <div class="main-content-riders scrollable">
+        <h1>Viagens Disponíveis</h1>
+        <hr>
+        <ul>
+            <% for(let i = 0; i < ridersObj.length; i++) { %>
+                <li>
+                    <a class="user" onclick="return false;">
+                        <div class="p1">
+                            <h1> <%= ridersObj[i].name %> </h1>
+                            <p>Local de partida: <%= ridersObj[i].startingLocation %> </p>
+                            <p>Horário de partida: <%= ridersObj[i].startingHour %></p>
+                        </div>
+                        <div class="p2">
+                            <h2>
+                                Vagas: <%= ridersObj[i].seats %>
+                            </h2>
+                        </div>
+                    </a>
+                    <% if(ridersObj[i].seats <= 0) { %>
+                        <a onclick="return false;" class="btnDisabled" href="/rideJoiner"><button class="joining">Juntar-se</button></a>
+                    <% } else { %>
+                        <a class="btn" href="/rideJoiner/<%= ridersObj[i].ra %>"><button class="joining">Juntar-se</button></a>
+                    <% } %>
+                    
+                </li>
+            <% } %>
+        </ul>
+    </div>
+</div>

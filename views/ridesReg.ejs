@@ -1,0 +1,25 @@
+<%- include("partials/header.ejs") %>
+
+<%- include("partials/navbar.ejs", { login: locals.userObj.isLoged, name: locals.userObj.name, ra: locals.userObj.ra }) %>
+
+<div class="ridesRegistration">
+    <form action="/validateRideRegistration" method="POST">
+        <div class="loginBox">
+            <div class="title">
+                <h1>Cadastro de Viagem</h1>
+            </div>
+            <input name="start" class="signUpInput" type="text" placeholder="Insira o local de partida da viagem">
+            <input name="startTime" class="signUpInput" type="text" placeholder="Insira o horário de partida da viagem">
+            <select id="seats" name="seats" class="signUpInput" required>
+                <option value="" disabled selected>Quantidade de assentos disponíveis</option>
+                <option value="seat1">1</option>
+                <option value="seat2">2</option>
+                <option value="seat3">3</option>
+                <option value="seat4">4</option>
+                <option value="seat5">5</option>
+            </select>
+            <button class="btn" type="submit"><p>Cadastrar Viagem</p></button>
+            <p>Ao cadastrar a viagem, os usuários passageiros passarão a ver a sua oferta de carona.</p>
+        </div>
+    </form>
+</div>

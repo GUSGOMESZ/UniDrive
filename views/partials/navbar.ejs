@@ -1,0 +1,18 @@
+<div class="navbar">
+    <div class="logo">
+      <a href="/home"><h1>UniDrive .</h1></a>
+    </div>
+    <div class="tabs">
+      <a href="/passengers"><h3>Passageiros</h3></a>
+      <a href="/drivers"><h3>Motoristas</h3></a>
+    </div>
+    <div class="profile">
+      <% if(!(locals.login)) { %>
+        <a href="/login"><h3>Login</h3></a>
+        <a href="/signup"><h3>Cadastre-se</h3></a>
+      <% } else { %>
+        <a href="/users/<%= locals.ra %>"><h3><%= locals.name %></h3></a>
+        <a href="/logout"><h3>Sair</h3></a>
+      <% } %>
+    </div>
+</div>

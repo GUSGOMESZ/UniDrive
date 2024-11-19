@@ -1,0 +1,45 @@
+<%- include("partials/header.ejs") %>
+
+<%- include("partials/navbar.ejs", { login: locals.userObj.isLoged, name: locals.userObj.name, ra: locals.userObj.ra }) %>
+
+<div class="contentSignup">
+    <form action="/login" method="POST">
+        <div class="signUpBox">
+            <input name="ra" class="signUpInput" type="text" placeholder="Insira seu RA" required>
+            <input name="password" class="signUpInput" type="text" placeholder="Crie uma senha" required>
+            <input name="name" class="signUpInput" type="text" placeholder="Insira seu nome" required>
+            <input name="city" class="signUpInput" type="text" placeholder="Insira sua cidade" required>
+            <select id="cursos" name="course" class="signUpInput">
+                <option value="" disabled selected>Selecionar Curso</option>
+                <option value="agronomia">Engenharia Agronômica</option>
+                <option value="alimentos">Engenharia Alimentos</option>
+                <option value="civil">Engenharia Civil</option>
+                <option value="computacao">Engenharia de Computação</option>
+                <option value="eletrica">Engenharia Elétrica</option>
+                <option value="mecanica">Engenharia Mecânica</option>
+                <option value="mecatronica">Engenharia Mecatrônica</option>
+                <option value="producao">Engenharia de Produção</option>
+                <option value="quimica">Engenharia Química</option>
+                <option value="ads">Análise e Desenvolvimento de Sistemas</option>
+                <option value="bds">Tecnologia em Banco de Dados</option>
+                <option value="gti">Tecnologia em Gestão de T.I.</option>
+                <option value="jds">Tecnologia em Jogos Digitais</option>
+            </select>
+
+            <div class="roles">
+                <div class="option">
+                    <input type="radio" id="motorista" name="role" value="Motorista" required>
+                    <label for="motorista">Motorista</label>
+                </div>
+                
+                <div class="option">
+                    <input type="radio" id="passageiro" name="role" value="Passageiro">
+                    <label for="passageiro">Passageiro</label>
+                </div>
+            </div>
+
+            <p>Já possui cadastro ? <a href="/login">Login</a></p>
+            <button class="btn" type="submit"><p>Cadastrar-se</p></button>
+        </div>
+    </form>
+</div>

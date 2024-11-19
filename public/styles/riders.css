@@ -1,0 +1,101 @@
+.main-content-riders {
+    width: 75%;
+    height: 100%;
+    background: white;
+    border: 1px solid black;
+    padding: 20px 0 0 20px;
+    overflow-y: auto;
+}
+
+.main-content-riders hr {
+    border: none;           
+    height: 3px;            
+    background-color: #333; 
+    width: 90%;             
+    margin: 20px auto;      
+    border-radius: 5px;
+}
+
+.main-content-riders ul {
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    list-style: none;
+    align-items: center;
+}
+
+.main-content-riders ul li {
+    width: 96%;
+    height: auto;
+    border: 3px solid black;
+    padding: 10px 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    transition: .5s ease;
+    margin: 0 0 10px 0;
+}
+
+/*
+.main-content-riders ul li:hover {
+    scale: 1.02;
+}
+*/
+
+.main-content-riders ul li .user {
+    width: 90%;
+    height: 100%;
+    text-decoration: none;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    /* border: 1px solid red; */
+    padding-right: 20px;
+    cursor: default;
+}
+
+.main-content-riders ul li .btn, 
+.main-content-riders ul li .btnDisabled {
+    width: 10%;
+}
+
+.main-content-riders ul li .btn .joining {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background: rgb(21, 131, 178);
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.main-content-riders ul li .btnDisabled .joining {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background: rgb(66, 64, 65);
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.main-content-riders ul li .btn .joining:hover {
+    cursor: pointer;
+    background: rgb(15, 195, 201);
+}
+
+.main-content-riders ul li .user .p1 {
+    width: 50%;
+    height: 100%;
+    /* border: 1px solid black; */
+}
+
+.main-content-riders ul li .user .p2 {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    /* border: 1px solid black; */
+}

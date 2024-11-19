@@ -1,0 +1,137 @@
+<%- include("partials/header.ejs") %>
+
+<%- include("partials/navbar.ejs", { login: locals.userObj.isLoged, name: locals.userObj.name, ra: locals.userObj.ra }) %>
+
+<div class="home-content">
+    <%- include("partials/sidebar.ejs", { userObj: locals.userObj, dateObj: dateObj, weatherObj: weatherObj }) %>
+    <div class="map" id="map"></div>
+</div>
+<script>
+    
+    var lstMarkers = [];  // lista de marcadores
+    var lstLinks = [];    // lista dos links de informação do passageiro/motorista
+
+    // Configuração do Google Maps Javascript API
+
+    async function initMap() {
+
+        let key = "";
+
+        await fetch('/api/googleMapsKey')
+            .then(response => {
+                if(!response.ok) {
+                    throw new Error('Erro na requisição da chave');
+                }
+                return response.json();
+            })
+            .catch(error => {
+                console.log("Erro ao acessar os dados do Banco de Dados", error);
+                throw error;
+            })
+            .then(data => {
+
+                key = data;
+            });
+
+        (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+        key: key,
+        v: "weekly",
+        });
+
+        let posicaoInicial = { lat: -23.500, lng: -47.457 };  // define a posicão do mapa quando inicializado
+
+        const { Map } = await google.maps.importLibrary("maps");  // carrega a biblioteca do mapa e dos marcadores
+        const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+        const { PinElement } = await google.maps.importLibrary("marker");
+
+        /* MAPA */
+        const map = new Map(document.getElementById("map"), { // cria o mapa, definindo a posição inicial e o zoom
+        center: posicaoInicial,
+        zoom: 14, // de 0 (visão de longe) a 22 (visão bem de perto)
+        mapId: '712a80df5dd6463b'
+        });
+
+        /* MARCADORES */
+        // Cria os elementos 'img'
+        const carImg = document.createElement("img");
+        const personImg = document.createElement("img");
+
+        // Passa os locais dos ícones customizados
+        carImg.src = "/images/iconeCarro.svg";
+        personImg.src = "/images/iconePessoa.svg";
+
+        const carSvgElement = new PinElement({
+        glyph: carImg,
+        background: '#00FF00',
+        borderColor: '#000000',
+        });
+
+        const personSvgElement = new PinElement({
+        glyph: personImg,
+        background: '#5555FF',
+        borderColor: '#000000',
+        });
+
+        let users = {};
+
+        await fetch('/api/locations')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro na requisição');
+                }
+                return response.json();
+            })
+            .catch(error => {
+                console.log("Erro ao acessar os dados do Banco de Dados", error);
+                throw error;
+            })
+            .then(data => {
+
+                users = data;
+            });
+
+        console.log(users);
+
+        for(let i = 0; i < users.length; i++) {
+
+            if(users[i].role == 'M') {
+                let carSvgClone = carSvgElement.element.cloneNode(true);
+                let motorista = new AdvancedMarkerElement({
+                map,
+                position: users[i].coordinates,
+                content: carSvgClone,
+                });
+                let linkMotorista = "http://localhost:3000/users/" + users[i].ra;
+                lstMarkers.push(motorista);
+                lstLinks.push(linkMotorista);
+            } else if(users[i].role == 'P') {
+                let personSvgClone = personSvgElement.element.cloneNode(true);
+                let passageiro = new AdvancedMarkerElement({
+                map,
+                position: users[i].coordinates,
+                content: personSvgClone,
+                });
+                let linkPassageiro = "http://localhost:3000/users/" + users[i].ra;
+                lstMarkers.push(passageiro);
+                lstLinks.push(linkPassageiro);
+            }
+        }
+
+        console.log(lstMarkers);
+        console.log(lstLinks);
+
+        // Adiciona os listeners e links aos marcadores
+        if(lstMarkers.length > 0) {
+            for(let i = 0; i < lstMarkers.length; i++) {
+                lstMarkers[i].addListener("click", () => {
+                window.location.href = lstLinks[i];
+                });
+            }
+        } else {
+        console.log("Nenhum marcador adicionado!");
+        }
+  }
+  
+  initMap();
+  
+</script>

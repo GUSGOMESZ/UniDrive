@@ -1,0 +1,28 @@
+<%- include("partials/header.ejs") %>
+
+<%- include("partials/navbar.ejs", { login: locals.userObj.isLoged, name: locals.userObj.name, ra: locals.userObj.ra }) %>
+
+<div class="home-content">
+    <%- include("partials/sidebar.ejs", { userObj: locals.userObj, dateObj: dateObj, weatherObj: weatherObj }) %>
+    <div class="main-content-drivers scrollable">
+        <h1>Motoristas</h1>
+        <hr>
+        <ul>
+            <% for(let i = 0; i < driversObj.driversQtt; i++) { %>
+                <li>
+                    <a href="/users/<%= driversObj.ras[i] %>">
+                        <div class="p1">
+                            <h1> <%= driversObj.names[i] %> </h1>
+                            <p> <%= driversObj.courses[i] %> </p>
+                        </div>
+                        <div class="p2">
+                            <h2>
+                                <%= driversObj.cities[i] %>
+                            </h2>
+                        </div>
+                    </a>
+                </li>
+            <% } %>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<%- include("partials/header.ejs") %>
+
+<%- include("partials/navbar.ejs", { login: locals.userObj.isLoged, name: locals.userObj.name, ra: locals.userObj.ra }) %>
+
+<div class="home-content">
+    <%- include("partials/sidebar.ejs", { userObj: locals.userObj, dateObj: dateObj, weatherObj: weatherObj }) %>
+    <div class="main-content-passengers scrollable">
+        <h1>Passageiros</h1>
+        <hr>
+        <ul>
+            <% for(let i = 0; i < passengersObj.passengersQtt; i++) { %>
+                <li>
+                    <a href="/users/<%= passengersObj.ras[i] %>">
+                        <div class="p1">
+                            <h1> <%= passengersObj.names[i] %> </h1>
+                            <p> <%= passengersObj.courses[i] %> </p>
+                        </div>
+                        <div class="p2">
+                            <h2>
+                                <%= passengersObj.cities[i] %>
+                            </h2>
+                        </div>
+                    </a>
+                </li>
+            <% } %>
+        </ul>
+    </div>
+</div>

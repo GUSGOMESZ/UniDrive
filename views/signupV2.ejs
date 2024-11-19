@@ -1,0 +1,78 @@
+<%- include("partials/header.ejs") %>
+
+<%- include("partials/navbar.ejs", { login: locals.userObj.isLoged, name: locals.userObj.name, ra: locals.userObj.ra }) %>
+
+<div class="contentSignup">
+    <form action="/login" method="POST">
+        <div class="signUpBox">
+            <div class="column1">
+                <input name="ra" class="signUpInput" type="text" placeholder="Insira seu RA" required>
+                <input name="password" class="signUpInput" type="text" placeholder="Crie uma senha" required>
+
+                <input name="firstName" class="signUpInput" type="text" placeholder="Insira seu primeiro nome" required>
+                <input name="lastName" class="signUpInput" type="text" placeholder="Insira seu último Nome" required>
+
+                <select id="cursos" name="course" class="signUpInput">
+                    <option value="" disabled selected>Selecionar Curso</option>
+                    <option value="agronomia">Engenharia Agronômica</option>
+                    <option value="alimentos">Engenharia Alimentos</option>
+                    <option value="civil">Engenharia Civil</option>
+                    <option value="computacao">Engenharia de Computação</option>
+                    <option value="eletrica">Engenharia Elétrica</option>
+                    <option value="mecanica">Engenharia Mecânica</option>
+                    <option value="mecatronica">Engenharia Mecatrônica</option>
+                    <option value="producao">Engenharia de Produção</option>
+                    <option value="quimica">Engenharia Química</option>
+                    <option value="ads">Análise e Desenvolvimento de Sistemas</option>
+                    <option value="bds">Tecnologia em Banco de Dados</option>
+                    <option value="gti">Tecnologia em Gestão de T.I.</option>
+                    <option value="jds">Tecnologia em Jogos Digitais</option>
+                </select>
+
+                <select id="semestres" name="semester" class="signUpInput">
+                    <option value="" disabled selected>Selecionar Semestre</option>
+                    <option value="s1">1º Semestre</option>
+                    <option value="s2">2º Semestre</option>
+                    <option value="s3">3º Semestre</option>
+                    <option value="s4">4º Semestre</option>
+                    <option value="s5">5º Semestre</option>
+                    <option value="s6">6º Semestre</option>
+                    <option value="s7">7º Semestre</option>
+                    <option value="s8">8º Semestre</option>
+                    <option value="s9">9º Semestre</option>
+                    <option value="s10">10º Semestre</option>
+                </select>
+
+                <select id="periodo" name="period" class="signUpInput">
+                    <option value="" disabled selected>Selecionar Período</option>
+                    <option value="morning">Manhã</option>
+                    <option value="noon">Tarde</option>
+                    <option value="evening">Noite</option>
+                </select>
+            </div>
+            <div class="column2">
+                <input name="city" class="signUpInput" type="text" placeholder="Insira sua cidade" required>
+                <input name="address" class="signUpInput" type="text" placeholder="Insira seu endereço" required>
+
+                <input name="whatsapp" class="signUpInput" type="text" placeholder="Insira seu número" required>
+                <input name="linkedin" class="signUpInput" type="text" placeholder="Nome de usuário Linkedin (Opcional)">
+                <input name="instagram" class="signUpInput" type="text" placeholder="Nome de usuário Instagram (Opcional)">
+
+                <div class="roles">
+                    <div class="option">
+                        <input type="radio" id="motorista" name="role" value="Motorista" required>
+                        <label for="motorista">Motorista</label>
+                    </div>
+                    
+                    <div class="option">
+                        <input type="radio" id="passageiro" name="role" value="Passageiro">
+                        <label for="passageiro">Passageiro</label>
+                    </div>
+                </div>
+
+                <p>Já possui cadastro ? <a href="/login">Login</a></p>
+                <button class="btn" type="submit"><p>Cadastrar-se</p></button>
+            </div>
+        </div>
+    </form>
+</div>

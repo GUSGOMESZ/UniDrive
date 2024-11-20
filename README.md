@@ -22,11 +22,7 @@ O projeto visa alinhar-se com dois dos Objetivos de Desenvolvimento Sustentável
 
 - **Back-end:** Node.js (Express.js)  
 - **Banco de Dados:** PostgreSQL  
-- **Template Engine:** EJS  
-- **Outras ferramentas:**  
-  - Body-parser para manipulação de formulários.  
-  - Nodemon para desenvolvimento local.  
-  - Dotenv para gerenciamento de variáveis de ambiente.  
+- **Template Engine:** EJS    
 
 ---
 
@@ -48,6 +44,29 @@ O projeto visa alinhar-se com dois dos Objetivos de Desenvolvimento Sustentável
 
 1. **Clone o repositório ou baixe o arquivo ZIP**
 2. **Instale as dependências:**
-3. 
 ```bash
 npm install
+```
+3. **Crie um arquivo .env na raiz do projeto e configure as variáveis de ambiente**
+```bash
+# Porta do servidor, se não for especificada, usará a porta 3000
+PORT=sua_porta
+
+# Variáveis do banco de dados
+DB_HOST="localhost"
+DB_PORT=5432
+DB_USER=seu_usuario
+DB_PASSWORD=sua_senha
+DB_NAME=nome_do_banco
+
+# Open Weather API Key
+OPEN_WEATHER_KEY=sua_chave
+
+# Google Maps API KEY
+GOOGLE_MAPS_KEY=sua_chave
+```
+4. **Inicie o servidor**
+```bash
+node index.js
+```
+

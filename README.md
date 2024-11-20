@@ -4,8 +4,6 @@
 
 Este projeto é um protótipo de aplicativo de caronas desenvolvido como projeto acadêmico. Este sistema foi criado para ajudar estudantes a organizar e marcar caronas de forma prática e sustentável.  
 
----
-
 ## Descrição do Projeto  
 
 O UniDrive é um site desenvolvido com **Node.js** e **PostgreSQL** que permite que estudantes:  
@@ -16,15 +14,11 @@ A principal motivação é reduzir a quantidade de automóveis em circulação e
 
 O projeto visa alinhar-se com dois dos Objetivos de Desenvolvimento Sustentável da ONU: a ODS11, que busca criar cidades e comunidades sustentáveis e a ODS13, que busca ações que atenuem a mudança global do clima.
 
----
-
 ## Tecnologias Utilizadas  
 
 - **Back-end:** Node.js (Express.js)  
 - **Banco de Dados:** PostgreSQL  
 - **Template Engine:** EJS    
-
----
 
 ## Funcionalidades Principais  
 
@@ -37,8 +31,6 @@ O projeto visa alinhar-se com dois dos Objetivos de Desenvolvimento Sustentável
 
 3. **Interface simples e intuitiva:**  
    - Design pensado na usabilidade, permitindo que o sistema seja facilmente utilizado por qualquer aluno.  
-
----
 
 ## Teste Você Mesmo
 

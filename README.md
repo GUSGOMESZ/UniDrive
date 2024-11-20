@@ -72,6 +72,27 @@ node index.js
 
 ---
 
+## Melhorias, Novas Funcionalidades e Bugs
+
+1. **Melhorias**
+   - Tornar a interface mais atrativa e intuitiva.
+   - Uma requisição é feita ao Open Weather API a todo momento que uma página que exiga dados do clima é carregada, seria válido reaizar uma verificação do número de requisições para os casos em que os dados pertinentes já foram acessados, evitando assim requisições redundantes.
+   - Alguns alunos têm aulas tanto de manhã quanto a noite, seria válido implementar uma lógica que suporte esses casos.
+   - A lógica atual (20/11/2024) não válida os dados inseridos durante o cadastro e isso pode compremeter o funcionamento do programa.
+   - Melhorar a implementação do HTML.
+2. **Novas Funcionalidades**
+   - Tornar o site responsivo.
+   - Criar uma forma do usuário alterar os dados inseridos durante o cadastro.
+   - Criar uma forma do usuário cancelar a viagem em que está registrado.
+   - Criar uma forma do usuário recadastrar suas aulas.
+   - Criar a possibilidade de cadastrar-se em mais de uma viagem.
+4. **Bugs**
+   - Durante os testes, era comum surgir erros ao tentar adquirir dados da Open Weather API, mas acredito que isso apenas seja um problema na comunicação com os servidores.
+   - Na página de perfil, caso a página seja recarregada o site irá "crashar", não investiguei o problema a fundo mas provavelmente a causa seja a obtenção dos dados do perfil que está sendo visto.
+   - ... 
+
+---
+
 ## Imagens
 
 Abaixo selecionei quatro imagens de algumas páginas do projeto que demonstram algumas das funcionalidades.

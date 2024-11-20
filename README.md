@@ -44,3 +44,10 @@ O projeto visa alinhar-se com dois dos Objetivos de Desenvolvimento Sustentável
 
 ---
 
+## Teste Você Mesmo
+
+1. **Clone o repositório ou baixe o arquivo ZIP**
+2. **Instale as dependências:**
+3. 
+```bash
+npm install

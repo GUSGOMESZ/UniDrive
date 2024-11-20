@@ -1,24 +1,23 @@
-# I'm finishing this README later...
 
 # UniDrive 🚗
 
-Este projeto é um protótipo de aplicativo de caronas desenvolvido como projeto acadêmico. Este sistema foi criado para ajudar estudantes a organizar e marcar caronas de forma prática e sustentável.  
+This project is a prototype of a carpooling app developed for academic project. This system was created to help students organize and book rides to the college in a practical and sustainable way. 
 
 ---
 
-## Descrição do Projeto  
+## Project Description 👨‍💻
 
-O UniDrive é um site desenvolvido com **Node.js** e **PostgreSQL** que permite que estudantes:  
-- **Ofereçam caronas:** Informando os detalhes da viagem, como horário e local de saída.  
-- **Busquem caronas:** Encontrando motoristas que vão para o mesmo destino.  
+UniDrive is website developed with **Node.js** and **PostgreSQL** that allows students to:
+- **Offer rides:** telling the trip details, such as time and local of departure.
+- **Search rides:** fiding drivers who can take them to college.
 
-A principal motivação é reduzir a quantidade de automóveis em circulação e contribuir para a diminuição da emissão de gases, promovendo um impacto ambiental positivo. O destino das caronas é sempre a faculdade, facilitando a integração entre os alunos.  
+The main motivation is to reduce the number of cars in circulation and contribute to the reduction of gas emissions, promoting a positive environmental impact. The destination of carpooling is always the college, allowing more integration between students.   
 
-O projeto visa alinhar-se com dois dos Objetivos de Desenvolvimento Sustentável da ONU: a ODS11, que busca criar cidades e comunidades sustentáveis e a ODS13, que busca ações que atenuem a mudança global do clima.
+The project aims to align with two of the UN's Sustainable Development Goals: SDG11, which seeks to create sustainable cities and communities, and SDG13, which seeks actions to mitigate global climate change.
 
 ---
 
-## Tecnologias Utilizadas  
+## Used Tech 🧪
 
 - **Back-end:** Node.js (Express.js)  
 - **Banco de Dados:** PostgreSQL  
@@ -26,76 +25,80 @@ O projeto visa alinhar-se com dois dos Objetivos de Desenvolvimento Sustentável
 
 ---
 
-## Funcionalidades Principais  
+## Main Features 💻
 
-1. **Cadastro e login de usuários:**  
-   - Cada usuário pode se cadastrar como motorista ou passageiro.  
+1. **User Registration and Login:**  
+   - Each user can register as a driver or passenger.  
 
-2. **Sistema de caronas:**  
-   - Motoristas podem criar ofertas de carona.  
-   - Passageiros podem buscar e solicitar caronas disponíveis.  
+2. Ride-Hailing System:  
+   - Drivers can create ride-hailing offers.  
+   - Passengers can pick up and request available rides.  
 
-3. **Interface simples e intuitiva:**  
-   - Design pensado na usabilidade, permitindo que o sistema seja facilmente utilizado por qualquer aluno.  
+3. Simple and intuitive interface:  
+   - Design with usability in mind, allowing the system to be easily used by any student.
 
 ---
 
-## Teste Você Mesmo
+## Improvements, New Features and Bugs 🛠️
 
-1. **Clone o repositório ou baixe o arquivo ZIP**
-2. **Instale as dependências:**
+1. **Improvements**
+   - Make the interface more attractive and intuitive.
+   - A request is made to the Open Weather API every time a page that requires weather data is loaded, it would be valid to re-check the number of requests for cases where the pertinent data has already been accessed, thus avoiding redundant requests.
+   - Some students have classes both in the morning and at night, it would be valid to implement a logic that supports these cases.
+   - The current logic (11/20/2024) does not validate the data entered during registration and this may compromise the operation of the program.
+   - Improve the HTML and CSS implementation.
+   - ...
+2. **New Features**
+   - Make the website responsive.
+   - Create a way for the user to change the data entered during registration.
+   - Create a way for the user to cancel the trip in which they are registered.
+   - Create a way for the user to re-register their classes.
+   - Create the possibility of registering for more than one trip.
+3. **Bugs**
+   - During the tests, it was common to have errors when trying to acquire data from the Open Weather API, but I believe that this is just a problem in communicating with the servers.
+   - On the profile page, if the page is reloaded the site will "crash", I have not investigated the problem in depth but probably the cause is the obtaining of the profile data that is being viewed.
+   - ...
+
+---
+
+## Try It Yourself 💁‍♂️
+
+1. **Clone the repository**
+```bash
+git clone <repository-url>
+```
+3. **Install dependencies:**
 ```bash
 npm install
 ```
-3. **Crie um arquivo .env na raiz do projeto e configure as variáveis de ambiente**
+3. **Create an .env file in the project root and configure the environment variables**
 ```bash
-# Porta do servidor, se não for especificada, usará a porta 3000
-PORT=sua_porta
+# Server port, if not specified, it will be port 3000
+PORT=your_port
 
-# Variáveis do banco de dados
+# DB Variables
 DB_HOST="localhost"
-DB_PORT=5432
-DB_USER=seu_usuario
-DB_PASSWORD=sua_senha
-DB_NAME=nome_do_banco
+DB_PORT=db_port (probably 5432)
+DB_USER=your_user
+DB_PASSWORD=your_password
+DB_NAME=db_name
 
 # Open Weather API Key
-OPEN_WEATHER_KEY=sua_chave
+OPEN_WEATHER_KEY=your_key
 
 # Google Maps API KEY
-GOOGLE_MAPS_KEY=sua_chave
+GOOGLE_MAPS_KEY=your_key
 ```
-4. **Inicie o servidor**
+4. **Start Server**
 ```bash
 node index.js
 ```
 
 ---
 
-## Melhorias, Novas Funcionalidades e Bugs
+## Images 🎮
 
-1. **Melhorias**
-   - Tornar a interface mais atrativa e intuitiva.
-   - Uma requisição é feita ao Open Weather API a todo momento que uma página que exiga dados do clima é carregada, seria válido reaizar uma verificação do número de requisições para os casos em que os dados pertinentes já foram acessados, evitando assim requisições redundantes.
-   - Alguns alunos têm aulas tanto de manhã quanto a noite, seria válido implementar uma lógica que suporte esses casos.
-   - A lógica atual (20/11/2024) não válida os dados inseridos durante o cadastro e isso pode compremeter o funcionamento do programa.
-   - Melhorar a implementação do HTML.
-2. **Novas Funcionalidades**
-   - Tornar o site responsivo.
-   - Criar uma forma do usuário alterar os dados inseridos durante o cadastro.
-   - Criar uma forma do usuário cancelar a viagem em que está registrado.
-   - Criar uma forma do usuário recadastrar suas aulas.
-   - Criar a possibilidade de cadastrar-se em mais de uma viagem.
-4. **Bugs**
-   - Durante os testes, era comum surgir erros ao tentar adquirir dados da Open Weather API, mas acredito que isso apenas seja um problema na comunicação com os servidores.
-   - Na página de perfil, caso a página seja recarregada o site irá "crashar", não investiguei o problema a fundo mas provavelmente a causa seja a obtenção dos dados do perfil que está sendo visto.
-   - ... 
-
----
-
-## Imagens
-
-Abaixo selecionei quatro imagens de algumas páginas do projeto que demonstram algumas das funcionalidades.
+See below some images that show some features and pages of the site.
 
 ![Home1](./images/home1.png)
 ![Home2](./images/home2.png)

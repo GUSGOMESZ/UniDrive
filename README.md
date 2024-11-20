@@ -48,12 +48,14 @@ The project aims to align with two of the UN's Sustainable Development Goals: SD
    - The current logic (11/20/2024) does not validate the data entered during registration and this may compromise the operation of the program.
    - Improve the HTML and CSS implementation.
    - ...
+     
 2. **New Features**
    - Make the website responsive.
    - Create a way for the user to change the data entered during registration.
    - Create a way for the user to cancel the trip in which they are registered.
    - Create a way for the user to re-register their classes.
    - Create the possibility of registering for more than one trip.
+     
 3. **Bugs**
    - During the tests, it was common to have errors when trying to acquire data from the Open Weather API, but I believe that this is just a problem in communicating with the servers.
    - On the profile page, if the page is reloaded the site will "crash", I have not investigated the problem in depth but probably the cause is the obtaining of the profile data that is being viewed.
@@ -67,10 +69,12 @@ The project aims to align with two of the UN's Sustainable Development Goals: SD
 ```bash
 git clone <repository-url>
 ```
-3. **Install dependencies:**
+
+2. **Install dependencies:**
 ```bash
 npm install
 ```
+
 3. **Create an .env file in the project root and configure the environment variables**
 ```bash
 # Server port, if not specified, it will be port 3000
@@ -89,6 +93,7 @@ OPEN_WEATHER_KEY=your_key
 # Google Maps API KEY
 GOOGLE_MAPS_KEY=your_key
 ```
+
 4. **Start Server**
 ```bash
 node index.js
@@ -101,8 +106,11 @@ node index.js
 See below some images that show some features and pages of the site.
 
 ![Home1](./images/home1.png)
+
 ![Home2](./images/home2.png)
+
 ![Rides](./images/rides.png)
+
 ![Profile](./images/profile.png)
 
 ---

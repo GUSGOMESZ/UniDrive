@@ -20,7 +20,7 @@ The project aims to align with two of the UN's Sustainable Development Goals: SD
 ## Used Tech 🧪
 
 - **Back-end:** Node.js (Express.js)  
-- **Banco de Dados:** PostgreSQL  
+- **Data Base:** PostgreSQL  
 - **Template Engine:** EJS
 
 ---

@@ -51,6 +51,7 @@ The project aims to align with two of the UN's Sustainable Development Goals: SD
      
 2. **New Features**
    - Make the website responsive.
+   - Calculate the kilometers and grams for each user based on their rides.
    - Create a way for the user to change the data entered during registration.
    - Create a way for the user to cancel the trip in which they are registered.
    - Create a way for the user to re-register their classes.

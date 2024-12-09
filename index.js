@@ -640,8 +640,8 @@ async function getSelectedUserData(ra, selectedUserObj) {
         // console.log(distance);
         // console.log(typeof rideDays);
 
-        let totalKM = distance * rideDays * 2;
-        let totalCO2 = (totalKM * 2300) / 1000;
+        let totalKM = (distance * rideDays * 2).toFixed(2);
+        let totalCO2 = ((totalKM * 2300) / 1000).toFixed(2);
 
         selectedUserObj.totalKM = totalKM;
         selectedUserObj.totalCO2 = totalCO2;

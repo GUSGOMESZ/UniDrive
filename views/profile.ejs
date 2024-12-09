@@ -61,11 +61,11 @@
             </div>
             <div class="rideData">
                 <div class="kmData">
-                    <h1>100</h1>
+                    <h1><%= locals.selectedUserObj.totalKM ? locals.selectedUserObj.totalKM : 0 %></h1>
                     <p>Quilômetros economizados</p>
                 </div>
                 <div class="coData">
-                    <h1>30</h1>
+                    <h1><%= locals.selectedUserObj.totalCO2 ? locals.selectedUserObj.totalCO2 : 0 %></h1>
                     <p>Gramas de CO2 evitados</p>
                 </div>
             </div>

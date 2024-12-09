@@ -358,8 +358,6 @@ async function getUserData() {
                 userObj.todayRideObj = todayRideObj;
             }
         }
-
-
     } else {
         userObj.isLoged = isLoged;
         userObj.city = standartCity;
@@ -605,6 +603,54 @@ async function getSelectedUserData(ra, selectedUserObj) {
     selectedUserObj.rides = selectedUserRides;
     selectedUserObj.numberPhone = selectedUserNumberPhone;
 
+    if(selectedUserObj.rides) {
+
+        if(selectedUserRole === 'P') {
+
+            query = await db.query(`SELECT B.startlocation, CURRENT_DATE - B.ridestart::DATE AS days FROM ridePassengers A LEFT JOIN rides B ON A.rideid = B.ridesid WHERE A.ra = '${selectedUserRa}'`);
+
+        } else {
+
+            query = await db.query(`SELECT startlocation, CURRENT_DATE - ridestart::DATE AS days FROM rides WHERE ra = '${selectedUserRa}'`);
+
+        }
+
+        let startingAddress = query.rows[0].startlocation;
+        let rideDays = query.rows[0].days;
+
+        // console.log(startingAddress);
+        // console.log(rideDays);
+
+        let coordinates = await getCoordinates(startingAddress);
+
+        // console.log(coordinates);
+
+        let startLat = coordinates.lat;
+        let startLon = coordinates.lng;
+
+        coordinates = await getCoordinates('Rua Facens, Sorocaba');
+
+        // console.log(coordinates);
+
+        let endLat = coordinates.lat;
+        let endLon = coordinates.lng;
+
+        let distance = parseFloat(await calculateDistance(startLat, startLon, endLat, endLon));
+
+        // console.log(distance);
+        // console.log(typeof rideDays);
+
+        let totalKM = distance * rideDays * 2;
+        let totalCO2 = (totalKM * 2300) / 1000;
+
+        selectedUserObj.totalKM = totalKM;
+        selectedUserObj.totalCO2 = totalCO2;
+
+    } else {
+
+        console.log("sem viagem");
+    }
+
     if(selectedUserIGBool) {
 
         query = await db.query(`SELECT instagram FROM socialMedia WHERE ra = '${selectedUserRa}'`);
@@ -762,6 +808,30 @@ async function getCoordinates(address) {
     } catch (error) {
         console.error('Erro ao consultar a API:', error);
         return null;
+    }
+}
+
+async function calculateDistance(startLat, startLon, endLat, endLon) {
+
+    let url = `https://maps.googleapis.com/maps/api/distancematrix/json?origins=${startLat},${startLon}&destinations=${endLat},${endLon}&key=${googleMapskey}`;
+
+    try {
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error("Erro na requisição: " + response.status);
+        }
+
+        const data = await response.json();
+
+        // console.log(data.rows[0].elements[0].distance.text);
+
+        return data.rows[0].elements[0].distance.text;
+
+    } catch {
+        console.log("Erro ao calcular a distancia");
+
+        return '0';
     }
 }
 

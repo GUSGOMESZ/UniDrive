@@ -581,6 +581,11 @@ async function getSelectedUserData(ra, selectedUserObj) {
     let selectedUserName = selectedUserFirstName + " " + selectedUserLastName;
 
     let selectedUserCourse = query.rows[0].course;
+
+    if(selectedUserCourse === "Análise e Desenvolvimento de Sistemas") {
+        selectedUserCourse = "ADS";
+    }
+
     let selectedUserSemester = query.rows[0].semester;
     let selectedUserPeriod = query.rows[0].period;
     let selectedUserCity = query.rows[0].city;
